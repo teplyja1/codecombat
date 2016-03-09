@@ -250,6 +250,7 @@
     subject: "Subject"
     email: "Email"
     password: "Password"
+    confirm_password: "Confirm Password"
     message: "Message"
     code: "Code"
     ladder: "Ladder"
@@ -268,6 +269,9 @@
     warrior: "Warrior"
     ranger: "Ranger"
     wizard: "Wizard"
+    first_name: "First Name"
+    last_name: "Last Name"
+    username: "Username"
 
   units:
     second: "second"
@@ -728,10 +732,13 @@
     middle_school: "Middle School"
     college_plus: "College or higher"
     anything_else: "Anything else we should know?"
-    thanks_header: "Thanks for requesting a quote!"
-    thanks_p: "We'll be in touch soon. Questions? Email us:"
-    thanks_anon: "Login or sign up with your account below to access your two free enrollments (we’ll notify you by email when they have been approved, which usually takes less than 48 hours). As always, the first hour of content is free for an unlimited number of students."
-    thanks_logged_in: "Your two free enrollments are pending approval. We’ll notify you by email when they have been approved (usually within 48 hours). As always, the first hour of content is free for an unlimited number of students."
+    thanks_header: "Request Received!" # {change}
+    thanks_sub_header: "Thanks for expressing interest in CodeCombat for your school."
+    thanks_p: "We'll be in touch soon! If you need to get in contact, you can reach us at:" # {change}
+    finish_signup: "Finish creating your teacher account:"
+    finish_signup_p: "Try out the courses, manage classrooms, course guides for teachers and more!"
+    signup_with: "Sign up with:"
+    conversion_warning: "WARNING: Your current account is a <em>Student Account</em>. Once you submit this form, your account will be converted into a Teacher Account."
 
   versions:
     save_version_title: "Save New Version"
