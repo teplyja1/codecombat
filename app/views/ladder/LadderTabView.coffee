@@ -217,6 +217,38 @@ module.exports = class LadderTabView extends CocoView
     data = d3.layout.histogram().bins(x.ticks(20))(histogramData)
     y = d3.scale.linear().domain([0, d3.max(data, (d) -> d.y)]).range([height, 10])
 
+    //Ticks on the scale
+    ticks=x.ticks(3);
+    firstTick=ticks[0];
+    lastTick=ticks[ticks.length-1];
+
+    //sets offset of tick from start/end of scale 
+    offsetFirstTick=x(firstTick);
+    offsetLastTick=width-x(lastTick);
+
+    //font size is set to 14px => 1ch(width of 0) ~ 8xp
+    //division by 2 reflect that label is centered width tick
+    firstTickLabelHalfWidth=(format(firstTick)+"").length*(8/2);
+    lastTickLabelHalfWidth=(format(lastTick)+"").length*(8/2);
+
+    //Compute minimal margin needet to contain tick label
+    leftMinimalMargin=firstTickLabelHalfWidth-offsetFirstTick;
+
+    rightMinimalMargin=lastTickLabelHalfWidth-offsetLastTick;
+
+    //Update margin width check if new margin is higher than innicial
+    margin = {top: 0, 
+    right: Math.max(margin.right,rightMinimalMargin), 
+    bottom: 0, 
+   left: Math.max(margin.left,leftMinimalMargin)};  
+  
+    width = 400 - margin.left - margin.right;
+    height = 100 - margin.top - margin.bottom;
+
+    //Update scale to new width
+    x = d3.scale.linear()
+      .domain([min,max])    
+      .range([0, width]);
     #create the x axis
     xAxis = d3.svg.axis().scale(x).orient('bottom').ticks(5).outerTickSize(0)
 
